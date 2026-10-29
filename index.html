@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منصة كورساتك | تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #fff6f3;
+            --primary-orange: #ff5e36;
+            --orange-gradient: linear-gradient(135deg, #ff4e3a 0%, #ff7a3d 100%);
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #f1e4df;
+            --tg-blue: #229ed9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 12px 14px 40px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 4px 18px 4px;
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo-box {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .logo-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            border: 1.5px solid #fed7aa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: var(--primary-orange);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-subscribe-nav {
+            background: var(--orange-gradient);
+            color: #fff;
+            text-decoration: none;
+            padding: 7px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(255, 94, 54, 0.3);
+        }
+
+        .btn-icon-round {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .main-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(255, 94, 54, 0.06);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 237, 230, 0.7);
+        }
+
+        .badge-welcome {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff1ed;
+            color: var(--primary-orange);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .hero-heading {
+            font-size: 27px;
+            font-weight: 900;
+            line-height: 1.35;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .hero-heading span.highlight {
+            color: var(--primary-orange);
+        }
+
+        .hero-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .code-box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .input-code-wrapper {
+            position: relative;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .input-code-wrapper:focus-within {
+            border-color: var(--primary-orange);
+            background: #fff;
+        }
+
+        .student-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 19px;
+            font-weight: 800;
+            color: #0f172a;
+            text-align: center;
+            outline: none;
+        }
+
+        .input-hint-lines {
+            display: flex;
+            justify-content: space-between;
+            gap: 4px;
+            margin-bottom: 10px;
+        }
+
+        .hint-bar {
+            flex-grow: 1;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 4px;
+        }
+
+        .code-sub-note {
+            font-size: 12px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .feedback-msg {
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 14px;
+            display: none;
+        }
+
+        .btn-submit-login {
+            width: 100%;
+            background: var(--orange-gradient);
+            color: #ffffff;
+            border: none;
+            border-radius: 16px;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 94, 54, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-submit-login:active {
+            opacity: 0.9;
+        }
+
+        .links-bottom-box {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .links-bottom-box a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .plan-card {
+            background: var(--orange-gradient);
+            color: #fff;
+            border-radius: 20px;
+            padding: 22px 18px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(255, 78, 58, 0.35);
+            margin-bottom: 18px;
+        }
+
+        .plan-title {
+            font-size: 16px;
+            font-weight: 700;
+            opacity: 0.95;
+            margin-bottom: 6px;
+        }
+
+        .plan-price-num {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .plan-old-price {
+            font-size: 14px;
+            opacity: 0.85;
+            text-decoration: line-through;
+            margin-top: 4px;
+            margin-bottom: 12px;
+        }
+
+        .plan-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.22);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .features-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        .features-title {
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-item span.check {
+            color: #10b981;
+            font-size: 16px;
+        }
+
+        .admins-section-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+
+        .admins-section-desc {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .admin-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .admin-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-avatar {
+            width: 48px;
+            height: 48px;
+            background: #0284c7;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            position: relative;
+        }
+
+        .tg-badge-icon {
+            position: absolute;
+            bottom: -3px;
+            left: -3px;
+            background: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--tg-blue);
+        }
+
+        .admin-texts h4 {
+            font-size: 15px;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .admin-texts p {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .btn-tg-contact {
+            background: #e0f2fe;
+            color: #0369a1;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-tg-contact:hover {
+            background: #bae6fd;
+        }
+
+        .warning-alert {
+            background: #fff1f2;
+            border: 1px solid #fecdd3;
+            color: #e11d48;
+            border-radius: 16px;
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 800;
+            text-align: center;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="navbar">
+            <div class="nav-right">
+                <div class="logo-icon">C</div>
+                <div class="nav-logo-box">
+                    <span class="logo-title">كورساتك</span>
+                    <span class="logo-sub">هنذاكر بطعم الضحك</span>
+                </div>
+            </div>
+            <div class="nav-left">
+                <a href="#subscribeSection" class="btn-subscribe-nav">اشترك</a>
+                <div class="btn-icon-round">🌙</div>
+                <div class="btn-icon-round">☰</div>
+            </div>
+        </header>
+
+        <section class="main-card">
+            <div class="badge-welcome">
+                ★ أهلاً بيك في كورساتك
+            </div>
+
+            <h1 class="hero-heading">
+                سجل دخولك وكمّل المنهج <span class="highlight">بطعم الضحك</span>
+            </h1>
+
+            <p class="hero-desc">
+                محتاج بس كود الطالب والجهاز اللي هتذاكر منه. لو غيرت موبايل أو واجهت مشكلة كلّم الأدمن وهيساعدك فورًا.
+            </p>
+
+            <div class="code-box-header">
+                <span>كود الطالب</span>
+                <span style="color: #94a3b8;">إدخال الكود</span>
+            </div>
+
+            <div class="input-code-wrapper">
+                <input type="text" placeholder="اكتب كود الطالب هنا..." class="student-input" id="studentCode">
+                <span style="color: #94a3b8; font-size: 16px;">🔑</span>
+            </div>
+
+            <div class="input-hint-lines">
+                <div class="hint-bar"></div><div class="hint-bar"></div><div class="hint-bar"></div>
+                <div class="hint-bar"></div><div class="hint-bar"></div><div class="hint-bar"></div>
+                <div class="hint-bar"></div><div class="hint-bar"></div><div class="hint-bar"></div>
+            </div>
+
+            <div class="code-sub-note">
+                هتلاقي الكود في رسالة الاشتراك أو من الأدمن مباشرة.
+            </div>
+
+            <div id="feedbackMsg" class="feedback-msg"></div>
+
+            <button class="btn-submit-login" onclick="verifyStudentCode()">
+                سجل دخول ←
+            </button>
+
+            <div class="links-bottom-box">
+                <div>لسه ما اشتركتش؟ <a href="#subscribeSection">اشترك دلوقتي</a></div>
+                <div style="margin-top: 4px; color: #64748b;">نسيت الكود أو عندك مشكلة؟ <a href="#adminsSection">كلّم الأدمن</a></div>
+            </div>
+        </section>
+
+        <section class="main-card" id="subscribeSection">
+            <div style="text-align: center; margin-bottom: 12px;">
+                <span class="badge-welcome">👥 عايز تشترك؟</span>
+            </div>
+
+            <h2 class="hero-heading" style="text-align: center; font-size: 24px;">
+                كل تفاصيل <span class="highlight">الاشتراك</span> والتواصل مع الأدمن
+            </h2>
+
+            <p class="hero-desc" style="text-align: center; margin-bottom: 18px;">
+                تقدر تبدأ بتجربة مجانية وبعدين تختار الخطة اللي تناسبك، والأدمن الرسمي هيساعدك خطوة بخطوة.
+            </p>
+
+            <div class="plan-card">
+                <div class="plan-title">الاشتراك الشهري</div>
+                <div class="plan-price-num">200</div>
+                <div class="plan-old-price">ج.م بدلاً من 300 ج.م</div>
+                <span class="plan-tag">شامل كل المواد</span>
+            </div>
+
+            <div class="features-card">
+                <div class="features-title">اللي هتاخده مع اشتراكك</div>
+                <div class="feature-item">
+                    <span class="check">✓</span>
+                    <span>كل المواد لكل الشُعب والمراحل</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-card" id="adminsSection">
+            <h3 class="admins-section-title">الأدمن المسؤول</h3>
+            <p class="admins-section-desc">الأدمن الرسمي للمنصة — تواصل مباشرة للاشتراك وتفعيل الكود</p>
+
+            <div class="admin-item">
+                <div class="admin-meta">
+                    <div class="admin-avatar">
+                        A
+                        <span class="tg-badge-icon">✈</span>
+                    </div>
+                    <div class="admin-texts">
+                        <h4>أدمن المنصة</h4>
+                        <p>أدمن رسمي — متاح للرد فوراً</p>
+                    </div>
+                </div>
+                <a href="https://t.me/yanrj_12222" target="_blank" class="btn-tg-contact">
+                    تواصل ←
+                </a>
+            </div>
+
+            <div class="warning-alert">
+                ⚠ في حالة وجود ضغط رسائل، انتظر دقيقة وسيتم الرد عليك وتفعيل حسابك فوراً!
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function verifyStudentCode() {
+            const codeInput = document.getElementById('studentCode');
+            const code = codeInput.value.trim().toLowerCase();
+            const msgBox = document.getElementById('feedbackMsg');
+
+            // التحقق من الباسورد الجديد: ايمكس
+            if (code === 'ايمكس' || code === 'emix') {
+                msgBox.style.display = 'block';
+                msgBox.style.color = '#10b981';
+                msgBox.textContent = '✓ مرحباً بك! تم التحقق من الكود بنجاح، جاري الدخول...';
+            } else {
+                msgBox.style.display = 'block';
+                msgBox.style.color = '#e11d48';
+                msgBox.textContent = '✕ كود الطالب غير صحيح! تواصل مع الأدمن بالأسفل للحصول على الكود.';
+            }
+        }
+
+        document.getElementById('studentCode').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') verifyStudentCode();
+        });
+    </script>
+</body>
+</html>
